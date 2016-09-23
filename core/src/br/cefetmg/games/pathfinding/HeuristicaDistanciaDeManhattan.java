@@ -11,11 +11,15 @@ import com.badlogic.gdx.ai.pfa.Heuristic;
  *
  * @author Aluno
  */
-public class HeuristicaOpcional implements Heuristic<TileNode>{
+public class HeuristicaDistanciaDeManhattan implements Heuristic<TileNode>{
 
     @Override
     public float estimate(TileNode n, TileNode n1) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            float distancia;
+            float distX = Math.abs(n.getPosition().x - n1.getPosition().x);
+            float distY = Math.abs(n.getPosition().y - n1.getPosition().y);
+            distancia = (distX + distY) / 9;
+            return distancia;
     }
     
 }

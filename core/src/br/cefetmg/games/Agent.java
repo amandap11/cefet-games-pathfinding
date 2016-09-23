@@ -8,7 +8,7 @@ import br.cefetmg.games.movement.behavior.Algorithm;
 import br.cefetmg.games.movement.behavior.Seek;
 import br.cefetmg.games.pathfinding.HeuristicaEuclidiana;
 import br.cefetmg.games.pathfinding.HeuristicaNula;
-import br.cefetmg.games.pathfinding.HeuristicaOpcional;
+import br.cefetmg.games.pathfinding.HeuristicaDistanciaDeManhattan;
 import br.cefetmg.games.pathfinding.TileConnection;
 import br.cefetmg.games.pathfinding.TileNode;
 import com.badlogic.gdx.ai.pfa.DefaultGraphPath;
@@ -108,10 +108,10 @@ public class Agent {
         
         HeuristicaNula hNula = new HeuristicaNula();
         HeuristicaEuclidiana hEuclidiana = new HeuristicaEuclidiana();
-        HeuristicaOpcional hOpcional = new HeuristicaOpcional();
+        HeuristicaDistanciaDeManhattan hManhattan = new HeuristicaDistanciaDeManhattan();
 
         // AQUI ESTAMOS CHAMANDO O ALGORITMO A* (instância pathFinder) 
-        pathFinder.searchConnectionPath(startNode, targetNode, hEuclidiana, path); 
+        pathFinder.searchConnectionPath(startNode, targetNode, hManhattan, path); 
         
         pathIterator = path.iterator();
     }
